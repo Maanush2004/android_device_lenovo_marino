@@ -1,0 +1,170 @@
+# MTK project .rc configure
+
+import init.mt6757.usb.rc
+
+on init
+    mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
+    mkdir /storage/usbotg 0700 root root
+
+on post-fs-data
+
+#add by dingying
+    #white led
+    chmod 777 /sys/class/leds/rt5081_pmu_led4/brightness
+    chown system system /sys/class/leds/rt5081_pmu_led4/brightness
+#add by liuzhenhe  start 0920
+    chmod 777 /sys/class/leds/rt5081_pmu_led4/trigger
+    chown system system /sys/class/leds/rt5081_pmu_led4/trigger
+#add by liuzhenhe end 0920
+    #flash lights
+    chmod 777 /proc/flashlight_fac
+    chown system system /proc/flashlight_fac
+
+    #fpc id
+    chmod 777 /sys/class/goodix_fp/goodix_fp/device/fingerprint_id
+    chown system system /sys/class/goodix_fp/goodix_fp/device/fingerprint_id
+
+    #sku Board id
+    chmod 777 /proc/BoardId
+    #chown system system /proc/BoardId
+
+   # vibrator limit
+    chmod 0664 /sys/module/vibrator_drv/parameters/lct_vibr_factory_flag
+    chown system system /sys/module/vibrator_drv/parameters/lct_vibr_factory_flag
+
+#add end
+
+    #restore necessary files into data partition
+    mkdir /data/thh 0770 root system
+    mkdir /data/thh/tee_00 0770 root system
+    copy /cache/thh/tee_00/thh_mt6757_lenovo_indriya.certs /data/thh/tee_00/thh_mt6757_lenovo_indriya.certs
+    copy /cache/thh/tee_00/thh_mt6757_lenovo_indriya.cfg /data/thh/tee_00/thh_mt6757_lenovo_indriya.cfg
+    mkdir /data/local 0751 root root
+    mkdir /data/local/tmp 0771 shell shell
+    copy /cache/local/tmp/thh_mt6757_lenovo_indriya.cfg /data/local/tmp/thh_mt6757_lenovo_indriya.cfg
+#add by jiatianbao longcheer 20170425
+	chmod 0664 /sys/board_properties/tpd_suspend_status
+	chown system system /sys/board_properties/tpd_suspend_status
+#add by jiatianbao longcheer 20170425
+
+#####
+chmod 777 /proc/mtk_battery_cmd/current_cmd
+chmod system system /proc/mtk_battery_cmd/current_cmd
+
+#add by gouxinyue for TPrawdata start
+    chmod 777 /proc/hotknot
+    chown system system /proc/hotknot
+#add by gouxinyue for TPrawdata end
+
+#add by tanhua1
+    chown system system /sys/class/graphics/fb0/cabc_mode
+    chown system system /sys/class/graphics/fb0/hbm
+#add end
+
+#Camera
+    chmod 0660 /dev/MAINAF
+    chown system camera /dev/MAINAF
+
+    chmod 0660 /dev/MAINAF2
+    chown system camera /dev/MAINAF2
+
+    chmod 0660 /dev/SUBAF
+    chown system camera /dev/SUBAF
+
+    chmod 0660 /dev/GAF001AF
+    chown system camera /dev/GAF001AF
+
+    chmod 0660 /dev/DW9714AF
+    chown system camera /dev/DW9714AF
+
+    chmod 0660 /dev/LC898212AF
+    chown system camera /dev/LC898212AF
+
+    chmod 0660 /dev/BU64745GWZAF
+    chown system camera /dev/BU64745GWZAF
+
+#SMB
+    chown system system /proc/smb/ScreenComm
+    chmod 0660 /proc/smb/ScreenComm
+
+#Define device for ATCID
+    chmod 660 /dev/ttyGS0
+    chown system /dev/ttyGS0
+    chmod 660 /dev/ttyGS1
+    chown system /dev/ttyGS1
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+#define fingerprintd
+    chmod 777 /system/bin/fingerprintd
+    chmod 777 /system/bin/goodixfingerprintd
+  
+
+
+# LCSH ADD by tqq for goodix fingerprint 20170228 start
+on fs
+    chown system system /dev/goodix_fp
+    chown system system /system/bin/fingerprintd
+    chown system system /system/bin/goodixfingerprintd
+
+on init
+    # Refer to http://source.android.com/devices/tech/storage/index.html
+    # It said, "Starting in Android 4.4, multiple external storage devices are surfaced to developers through
+    #           Context.getExternalFilesDirs(), Context.getExternalCacheDirs(), and Context.getObbDirs().
+    #           External storage devices surfaced through these APIs must be a semi-permanent part of the device (such as an SD card slot in a battery compartment).
+    #           Developers expect data stored in these locations to be available over long periods of time."
+    # Therefore, if the target doesn't support sd hot-plugging (Ex: the SD card slot in a battery compartment), we need to export SECONDARY_STORAGE in 'boot' section
+    #
+    # export SECONDARY_STORAGE /storage/sdcard1
+
+service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
+    class late_start
+    disabled
+
+service atci_service /system/bin/atci_service
+	socket atci-service stream 660 radio system
+	socket atci-serv-fw stream 660 radio system
+	user root
+        disabled
+	group radio system
+service atcid-daemon-u /system/bin/atcid
+	user system
+	group radio system media
+	disabled
+	oneshot
+
+service atcid-daemon-e /system/bin/atcid
+	user root
+	group radio system
+	disabled
+	oneshot
+
+on early_property:ro.build.type=eng
+start atci_service
+start atcid-daemon-e
+service audio-daemon /system/bin/audiocmdservice_atci
+    class main
+    socket atci-audio stream 660 media system
+    user media
+    group nvram media system sdcard_rw
+    disabled
+    oneshot
+
+
+service spm_script /system/vendor/bin/spm_loader
+    user system
+    group system
+    class core
+    oneshot
+    
+service goodixfpd /system/bin/goodixfingerprintd
+    class late_start
+    user system
+    group media_rw system
+
+service fingerprintd /system/bin/fingerprintd
+    class late_start
+    user system
+    group system
+

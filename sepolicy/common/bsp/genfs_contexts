@@ -1,0 +1,8 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+genfscon proc /secmem0 u:object_r:proc_secmem:s0
+
+# for /proc/ged ioctl
+genfscon proc /ged u:object_r:proc_ged:s0

@@ -1,0 +1,23 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+
+# proc interfaces
+
+#genfscon proc /android_touch/diag u:object_r:goodix_file:s0
+#genfscon proc /android_touch/reset u:object_r:goodix_file:s0
+#genfscon proc /android_touch/self_test u:object_r:goodix_file:s0
+#genfscon proc /android_touch/register u:object_r:goodix_file:s0
+#genfscon proc /mtk_battery_cmd/current_cmd u:object_r:battery_cmd:s0
+
+#gouxinyue
+genfscon proc /hotknot u:object_r:hotknot_file:s0
+genfscon proc /ftxxxx-debug u:object_r:ftxxxx:s0
+
+#Added by dingying for board id
+genfscon proc /BoardId u:object_r:proc_boardid_info:s0
+
+#Added by dingying for camera flash
+genfscon proc /flashlight_fac u:object_r:proc_camera_flash:s0
+####
+genfscon proc /mtk_battery_cmd/current_cmd u:object_r:battery_cmd:s0

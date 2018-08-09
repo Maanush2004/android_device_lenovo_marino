@@ -1,0 +1,29 @@
+# ==============================================
+# Policy File of /system/bin/override_nvram Executable File
+
+# ==============================================
+# Type Declaration
+# ==============================================
+type override_nvram_exec , exec_type, file_type;
+type override_nvram ,domain;
+
+
+# ==============================================
+# Policy Rule
+# ==============================================
+
+#permissive override_nvram;
+init_daemon_domain(override_nvram)
+
+allow override_nvram system_prop:property_service set;
+
+allow override_nvram nvram_device:blk_file rw_file_perms;
+allow override_nvram mmcblk0_block_device:blk_file rw_file_perms;
+allow override_nvram nvdata_device:blk_file rw_file_perms;
+
+allow override_nvram nvram_data_file:dir create_dir_perms;
+allow override_nvram nvram_data_file:file create_file_perms;
+allow override_nvram nvram_data_file:lnk_file read;
+allow override_nvram nvdata_file:dir create_dir_perms;
+allow override_nvram nvdata_file:file create_file_perms;
+allow override_nvram block_device:dir r_dir_perms;

@@ -1,0 +1,36 @@
+# ==============================================
+# Policy File of /system/bin/memsicd3630x Executable File 
+
+
+# ==============================================
+# Type Declaration
+# ==============================================
+
+type memsicd3630x_exec , exec_type, file_type;
+type memsicd3630x ,domain;
+
+# ==============================================
+# Android Policy Rule
+# ==============================================
+
+# ==============================================
+# NSA Policy Rule
+# ==============================================
+
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+#permissive memsicd3630x;
+init_daemon_domain(memsicd3630x)
+#unconfined_domain(memsicd3630x)
+# Purpose : M-sensor daemon for access driver node
+allow memsicd3630x msensor_device:chr_file { open ioctl read write };
+allow memsicd3630x gsensor_device:chr_file { open ioctl read write };
+allow memsicd3630x input_device:dir { search open read write };
+allow memsicd3630x input_device:file { open read };
+# Operate data partation directly, need modify later,e.g. use "data/misc/sensor".
+# for msensor daemon access "data/misc".
+file_type_auto_trans(memsicd3630x, system_data_file, msensor_data_file)
+allow memsicd3630x system_data_file:dir { create setattr };
+allow memsicd3630x msensor_data_file:file { open write read create setattr};

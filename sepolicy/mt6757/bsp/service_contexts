@@ -1,0 +1,7 @@
+
+android.hardware.fingerprint.IGoodixFingerprintDaemon u:object_r:goodixfingerprintd_service:s0
+com.goodix.FingerprintService u:object_r:goodix_fingerprint_service:s0
+
+#lenovo-sw 2017/2/10 huangzh3 Add VR function begin
+android.os.CmdServiceInterface            u:object_r:surfaceflinger_service:s0
+

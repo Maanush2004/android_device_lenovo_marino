@@ -1,0 +1,80 @@
+type goodixfingerprintd, domain;
+type goodixfingerprintd_exec, exec_type, file_type;
+type goodixfingerprintd_data_file, file_type, data_file_type;
+type goodixfingerprintd_service,service_manager_type;
+type goodixfingerprintd_device, dev_type;
+allow goodixfingerprintd rootfs:lnk_file getattr;
+
+type goodix_fingerprint_service,service_manager_type;
+
+init_daemon_domain(goodixfingerprintd)
+binder_use(goodixfingerprintd)
+
+# need to find KeyStore and add self
+allow goodixfingerprintd goodixfingerprintd_service:service_manager { add find };
+
+# allow HAL module to read dir contents
+allow goodixfingerprintd goodixfingerprintd_data_file:file { create_file_perms };
+
+# allow HAL module to read/write/unlink contents of this dir
+allow goodixfingerprintd goodixfingerprintd_data_file:dir rw_dir_perms;
+
+file_type_auto_trans(goodixfingerprintd,system_data_file,goodixfingerprintd_data_file);
+
+# For permissions checking
+binder_call(goodixfingerprintd, system_server);
+binder_call(system_server, goodixfingerprintd)
+allow system_server goodixfingerprintd_service:service_manager find;
+
+binder_call(goodixfingerprintd, fingerprintd);
+binder_call(fingerprintd, goodixfingerprintd);
+allow goodixfingerprintd permission_service:service_manager find;
+allow fingerprintd goodixfingerprintd_service:service_manager find;
+# Allow system process to relabel the fingerprint directory after mkdir
+allow system_server goodixfingerprintd_data_file:dir {r_dir_perms relabelto};
+
+# goodix fingerprint
+allow goodixfingerprintd self:process execmem;
+allow goodixfingerprintd kernel:system module_request;
+allow goodixfingerprintd fuse:dir create_dir_perms;
+allow goodixfingerprintd fuse:file create_file_perms;
+allow goodixfingerprintd self:capability { dac_override dac_read_search };
+
+# Access fingerprint devices at all.
+allow goodixfingerprintd goodixfingerprintd_device:chr_file rw_file_perms;
+
+# fingerprint data
+r_dir_file(goodixfingerprintd, goodixfingerprintd_data_file)
+
+# Grant access to fingerprint files to goodixfingerprintd
+allow goodixfingerprintd goodixfingerprintd_data_file:dir ra_dir_perms;
+allow goodixfingerprintd goodixfingerprintd_data_file:file create_file_perms;
+
+allow goodixfingerprintd mobicore:unix_stream_socket connectto;
+allow goodixfingerprintd mobicore_user_device:chr_file rw_file_perms;
+
+# for beanpod teei_fp_device
+allow goodixfingerprintd teei_fp_device:chr_file rw_file_perms;
+allow factory teei_fp_device:chr_file { read write ioctl open };
+
+#for netlink use
+allow goodixfingerprintd self:netlink_socket { read bind create write getattr setopt };
+
+#for factory test
+allow factory goodixfingerprintd_device:chr_file { read write ioctl open };
+allow factory self:netlink_socket { read bind create write getattr setopt };
+
+allow system_app goodix_fingerprint_service:service_manager { add find };
+allow untrusted_app goodix_fingerprint_service:service_manager { find };
+binder_call(system_app, goodixfingerprintd);
+binder_call(goodixfingerprintd, system_app);
+
+# allow sdcard access right
+allow goodixfingerprintd media_rw_data_file:dir { search write add_name };
+allow goodixfingerprintd media_rw_data_file:file { create write open read getattr };
+#lcsh tqq add
+allow goodixfingerprintd fingerprint_service:service_manager find;
+allow goodixfingerprintd power_service:service_manager find;
+
+# Lenovo, yangy19, 05/22/2017, goodix fingerprint
+allow platform_app goodix_fingerprint_service:service_manager find;

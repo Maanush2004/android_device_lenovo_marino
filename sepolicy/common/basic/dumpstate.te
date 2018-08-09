@@ -1,0 +1,10 @@
+# ==============================================
+# MTK Policy Rule
+# ==============================================
+
+# Date : WK1611
+# Operation : Bugreport UT
+# Purpose : add dumpstate policy rule
+allow dumpstate MtkCodecService:binder call;
+allow dumpstate gatekeeper_service:service_manager find;
+allow dumpstate self:capability sys_admin;

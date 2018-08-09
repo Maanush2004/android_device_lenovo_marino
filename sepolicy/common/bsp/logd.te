@@ -1,0 +1,7 @@
+# ==============================================
+# MTK Policy Rule
+# ============
+allow logd logd_prop:property_service set;
+allow logd logmuch_prop:property_service set;
+allow logd log_tag_prop:property_service set;
+neverallow {domain -init -logd -em_svr -mtkrild -cameraserver} logmuch_prop:property_service set;
