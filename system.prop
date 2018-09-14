@@ -388,7 +388,3 @@ persist.debug.wfd.enable=1
 sys.display-size=3840x2160
 
 debug.performance.tuning=1 video.accelerate.hw=1
-
-# Stagefright
-media.stagefright.legacyencoder=true
-media.stagefright.less-secure=true
