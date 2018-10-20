@@ -24,60 +24,27 @@ for var in eng user userdebug; do
   add_lunch_combo lineage_marino-$var
 done
 
-cd system/core
-git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/system_core.patch
-cd ../..
-
-cd bionic
-git reset --hard && git clean -f -d
-git apply -v ../device/lenovo/marino/patches_mtk/bionic.patch
-cd ..
-
-cd system/sepolicy
-git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/system_sepolicy.patch
-cd ../..
-
 cd frameworks/av
 git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/frameworks_av.patch
-cd ..
+git apply -v ../../device/lenovo/marino/patches/0001-frameworks_av.patch
+cd ../..
 
-cd native
+cd frameworks/base
 git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/frameworks_native.patch
-cd ..
+git apply -v ../../device/lenovo/marino/patches/0002-frameworks_base.patch
+cd ../..
 
-cd base
+cd frameworks/native
 git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/frameworks_base.patch
-cd ..
-
-cd opt/telephony
-git reset --hard && git clean -f -d
-git apply -v ../../../device/lenovo/marino/patches_mtk/frameworks_opt_telephony.patch
-cd ../../..
-
-cd packages/apps/Snap
-git reset --hard && git clean -f -d
-git apply -v ../../../device/lenovo/marino/patches_mtk/snap.patch
-cd ..
-
-cd FMRadio
-git reset --hard && git clean -f -d
-git apply -v ../../../device/lenovo/marino/patches_mtk/fmradio.patch
-cd ../../..
+git apply -v ../../device/lenovo/marino/patches/0003-frameworks_native.patch
+cd ../..
 
 cd system/netd
 git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/system_netd.patch
+git apply -v ../../device/lenovo/marino/patches/0004-system_netd.patch
 cd ../..
 
-cd vendor/cmsdk
+cd system/core
 git reset --hard && git clean -f -d
-git apply -v ../../device/lenovo/marino/patches_mtk/vendor_cmsdk.patch
+git apply -v ../../device/lenovo/marino/patches/0005-system_core.patch
 cd ../..
-
-
-
