@@ -1,0 +1,22 @@
+#INTERNAL_START
+on post-fs
+
+    #restore necessary files into data partition
+    mkdir /data/thh 0770 root system
+    mkdir /data/thh/tee_00 0770 root system
+    copy /cache/thh/tee_00/thh_mt6757_lenovo_indriya.certs /data/thh/tee_00/thh_mt6757_lenovo_indriya.certs
+    copy /cache/thh/tee_00/thh_mt6757_lenovo_indriya.cfg /data/thh/tee_00/thh_mt6757_lenovo_indriya.cfg
+    mkdir /data/local 0777 root root
+    mkdir /data/local/tmp 0777 root root
+    copy /cache/local/tmp/thh_mt6757_lenovo_indriya.cfg /data/local/tmp/thh_mt6757_lenovo_indriya.cfg
+
+    chmod 0660 /dev/spm
+    chown system system /dev/spm
+
+on boot
+
+service spm_script /system/vendor/bin/spm_loader
+    user system
+    group system
+    oneshot
+#INTERNAL_END
