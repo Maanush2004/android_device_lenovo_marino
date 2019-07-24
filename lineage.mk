@@ -28,11 +28,13 @@ PRODUCT_RELEASE_NAME := Lenovo K8 Plus
 
 PRODUCT_DEVICE			:= marino
 PRODUCT_NAME			:= lineage_marino
-PRODUCT_BRAND			:= lenovo
+PRODUCT_BRAND			:= Lenovo
 PRODUCT_MODEL			:= Lenovo K8 Plus
-PRODUCT_MANUFACTURER	:= lenovo
+PRODUCT_MANUFACTURER	:= LENOVO
 
 # Google client ID property.
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
-PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=lineage_marino_retail
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=marino_retail \
+    BUILD_THUMBPRINT=8.0.0/OMC27.70-56/87:user/release-keys
