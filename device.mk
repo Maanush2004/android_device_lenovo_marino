@@ -192,7 +192,7 @@ PRODUCT_PACKAGES+= \
     android.hardware.vibrator@1.0-service 
 
 # Wifi
-	PRODUCT_PACKAGES += \
+PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0 \
     android.hardware.wifi@1.0-service \
 	 dhcpcd.conf \
@@ -260,6 +260,9 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += netutils-wrapper-1.0 
 
+# toybox
+PRODUCT_PACKAGES += \
+     toybox_vendor
 	
 # Extras
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
