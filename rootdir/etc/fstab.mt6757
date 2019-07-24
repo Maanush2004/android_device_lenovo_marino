@@ -5,7 +5,7 @@
 # 1 "<command-line>" 2
 # 1 "vendor/mediatek/proprietary/hardware/fstab/mt6757/fstab.in"
 # 86 "vendor/mediatek/proprietary/hardware/fstab/mt6757/fstab.in"
-/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system /system ext4 ro wait,verify,recoveryonly
+/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/system /system ext4 ro wait,recoveryonly
 # 95 "vendor/mediatek/proprietary/hardware/fstab/mt6757/fstab.in"
 /dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/userdata /data f2fs rw,discard,nosuid,nodev,noatime,nodiratime,nobarrier,inline_xattr,inline_data wait,check,formattable,forceencrypt=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/metadata
 
