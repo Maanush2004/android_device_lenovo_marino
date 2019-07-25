@@ -35,7 +35,6 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/vendor/etc/media_codecs_google_audio.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/vendor/etc/media_codecs_google_video_le.xml
 
-
 # Audio XML files
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/vendor/etc/audio_policy_configuration.xml \
@@ -51,6 +50,11 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/vendor/wifi/p2p_supplicant_overlay.conf \
 	$(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/vendor/wifi/wpa_supplicant.conf \
 	$(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/vendor/wifi/wpa_supplicant_overlay.conf
+
+# Seccomp Policy
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/seccomp_policy/mediacodec.policy:system/vendor/etc/seccomp_policy/mediacodec.policy \
+    $(LOCAL_PATH)/seccomp_policy/mediaextractor.policy:system/vendor/etc/seccomp_policy/mediaextractor.policy
 
 # Permissions
 PRODUCT_COPY_FILES += \
