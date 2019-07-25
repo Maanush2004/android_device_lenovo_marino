@@ -86,6 +86,9 @@ chmod system system /proc/mtk_battery_cmd/current_cmd
     chmod 0660 /dev/spm
     chown system system /dev/spm
 
+#goodix fingerprint
+on fs
+    chown system system /dev/goodix_fp
 
 on init
     # Refer to http://source.android.com/devices/tech/storage/index.html
