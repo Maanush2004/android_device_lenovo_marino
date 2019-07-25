@@ -60,4 +60,9 @@ setup_vendor "$DEVICE" "$VENDOR" "$LINEAGE_ROOT" false "$CLEAN_VENDOR"
 
 extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
+BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
+
+# Remove rild oneshot
+sed -i "/oneshot/d" "$BLOB_ROOT"/vendor/etc/init/rild.rc
+
 "$MY_DIR"/setup-makefiles.sh
