@@ -37,4 +37,4 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=marino_retail \
-    BUILD_THUMBPRINT=8.0.0/OMC27.70-56/87:user/release-keys
+    BUILD_FINGERPRINT=Lenovo/marino_retail/marino:8.0.0/OMC27.70-56/87:user/release-keys
