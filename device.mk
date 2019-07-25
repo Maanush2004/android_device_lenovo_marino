@@ -46,6 +46,12 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/services/audiopolicy/config/r_submix_audio_policy_configuration.xml:system/vendor/etc/r_submix_audio_policy_configuration.xml \
 	frameworks/av/services/audiopolicy/config/usb_audio_policy_configuration.xml:system/vendor/etc/usb_audio_policy_configuration.xml 
 
+# Wi-Fi Configs
+PRODUCT_COPY_FILES += \
+	$(LOCAL_PATH)/wifi/p2p_supplicant_overlay.conf:system/vendor/wifi/p2p_supplicant_overlay.conf \
+	$(LOCAL_PATH)/wifi/wpa_supplicant.conf:system/vendor/wifi/wpa_supplicant.conf \
+	$(LOCAL_PATH)/wifi/wpa_supplicant_overlay.conf:system/vendor/wifi/wpa_supplicant_overlay.conf
+
 # Permissions
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.audio.low_latency.xml:system/vendor/etc/permissions/android.hardware.audio.low_latency.xml \
