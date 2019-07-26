@@ -65,4 +65,11 @@ BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 # Remove rild oneshot
 sed -i "/oneshot/d" "$BLOB_ROOT"/vendor/etc/init/rild.rc
 
+# Remove libkeymaster1.so and add libkeymaster_portable.so and libkeymaster_staging.so as dependencies for Fingerprint Libs
+for FP_LIB in $(grep -lr "libkeymaster1.so" $BLOB_ROOT); do
+    patchelf --remove-needed libkeymaster1.so "$FP_LIB" || true
+    patchelf --add-needed libkeymaster_portable.so "$FP_LIB" || true
+    patchelf --add-needed libkeymaster_staging.so "$FP_LIB" || true
+done
+
 "$MY_DIR"/setup-makefiles.sh
