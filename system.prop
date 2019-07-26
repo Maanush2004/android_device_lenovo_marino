@@ -102,6 +102,7 @@ ro.mediatek.version.branch=alps-trunk-o0.tk
 ro.mediatek.version.release=alps-mp-o0.mp1-V3.51_k57pv1.dm.64_P41
 ro.mediatek.version.sdk=4
 bt.profiles.avrcp.multiPlayer.enable=0
+persist.radio.multisim.config=dsds
 ro.num_md_protocol=2
 ro.mtk_bt_support=1
 ro.mtk_wappush_support=1
