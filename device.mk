@@ -294,6 +294,14 @@ PRODUCT_PACKAGES += netutils-wrapper-1.0
 # toybox
 PRODUCT_PACKAGES += \
      toybox_vendor
+
+# Libs required in GSIs
+PRODUCT_PACKAGES += \
+	libselinux_vendor \
+	libavservices_minijail_vendor \
+	libminijail_vendor \
+	libstdc++.vendor \
+	libion.vendor
 	
 # Extras
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
