@@ -1,4 +1,4 @@
-# Lenovo K8 Plus - LineageOS 15.0
+# Lenovo K8 Plus - LineageOS 15.1
 ==============
 
 # About Device
@@ -22,4 +22,4 @@ Front Camera | 8MP
 
 ---
 
-This device tree can be used to build LineageOS-15.0 for Lenovo K8 Plus
+This device tree can be used to build LineageOS-15.1 for Lenovo K8 Plus
