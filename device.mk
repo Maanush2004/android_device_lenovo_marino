@@ -59,12 +59,12 @@ PRODUCT_COPY_FILES += \
 
 # Usr Configs
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/input/idc/AVRCP.idc:system/usr/idc/AVRCP.idc \
-	$(LOCAL_PATH)/input/keylayout/ACCDET.kl:system/usr/keylayout/ACCDET.kl \
-	$(LOCAL_PATH)/input/keylayout/AVRCP.kl:system/usr/keylayout/AVRCP.kl \
-	$(LOCAL_PATH)/input/keylayout/gf-keys.idc:system/usr/keylayout/gf-keys.idc \
-	$(LOCAL_PATH)/input/keylayout/gf-keys.kl:system/usr/keylayout/gf-keys.kl \
-	$(LOCAL_PATH)/input/keylayout/mtk-kpd.kl:system/usr/keylayout/mtk-kpd.kl
+	$(LOCAL_PATH)/input/idc/AVRCP.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/AVRCP.idc \
+	$(LOCAL_PATH)/input/keylayout/ACCDET.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/ACCDET.kl \
+	$(LOCAL_PATH)/input/keylayout/AVRCP.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/AVRCP.kl \
+	$(LOCAL_PATH)/input/keylayout/gf-keys.idc:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf-keys.idc \
+	$(LOCAL_PATH)/input/keylayout/gf-keys.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/gf-keys.kl \
+	$(LOCAL_PATH)/input/keylayout/mtk-kpd.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/mtk-kpd.kl
 
 # Media Configs
 PRODUCT_COPY_FILES += \
