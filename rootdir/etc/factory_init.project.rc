@@ -17,7 +17,7 @@ on post-fs
 
 on boot
 
-service spm_script /system/vendor/bin/spm_loader
+service spm_script /vendor/bin/spm_loader
     user system
     group system
     oneshot

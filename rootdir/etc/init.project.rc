@@ -104,7 +104,7 @@ service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
     class late_start
     disabled
 
-service spm_script /system/vendor/bin/spm_loader
+service spm_script /vendor/bin/spm_loader
     user system
     group system
     class core
