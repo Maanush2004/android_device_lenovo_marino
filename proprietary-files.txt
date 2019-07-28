@@ -44,7 +44,6 @@ etc/init/thermalindicator.rc
 etc/mtklog-config.prop
 etc/rtt-conf.xml
 etc/spn-conf.xml
-files.txt
 lib64/com.motorola.hardware.display.panel@1.0.so
 lib64/drm/libdrmmtkplugin.so
 lib64/hw/fingerprint.default.so
