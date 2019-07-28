@@ -311,3 +311,6 @@ $(call inherit-product-if-exists, frameworks/native/build/phone-xxxhdpi-3072-hwu
 
 # Vendor
 $(call inherit-product, vendor/lenovo/marino/marino-vendor.mk)
+
+# Properties
+-include device/lenovo/marino/vendor_prop.mk
