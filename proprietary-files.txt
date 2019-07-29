@@ -112,6 +112,7 @@ lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 lib/com.motorola.hardware.display.panel@1.0.so
 lib/drm/libdrmmtkplugin.so:vendor/lib/drm/libdrmmtkplugin.so
 lib/libaal.so
+lib/libadvcamservice.so
 lib/libaed.so
 lib/libarcsoft_beautyshot.so
 lib/libaudio_param_parser-sys.so
@@ -145,6 +146,7 @@ lib/libjni_lomoeffect.so
 lib/libjni_pq.so
 lib/libmediatek_exceptionlog.so
 lib/libminiui.so
+lib/libmmsdkservice.so
 lib/libmotocare.so
 lib/libmpbase.so:vendor/lib/libmpbase.so
 lib/libmrdump.so
@@ -483,7 +485,6 @@ vendor/lib64/hw/android.hardware.audio@2.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
 vendor/lib64/hw/android.hardware.light@2.0-impl-mediatek.so
 vendor/lib64/hw/android.hardware.sensors@1.0-impl-mediatek.so
-vendor/lib64/hw/audio_policy.stub.so
 vendor/lib64/hw/audio.primary.mt6757.so
 vendor/lib64/hw/audio.usb.mt6757.so
 vendor/lib64/hw/com.motorola.hardware.display.panel@1.0-impl.so
@@ -513,7 +514,6 @@ vendor/lib64/hw/vendor.mediatek.hardware.nvram@1.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.power@1.1-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.pq@2.0-impl.so
 vendor/lib64/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
-vendor/lib64/hw/vibrator.default.so
 vendor/lib64/lib3a.ae.core.so
 vendor/lib64/lib3a.ae.so
 vendor/lib64/lib3a.af.core.so
@@ -528,7 +528,6 @@ vendor/lib64/lib3a.n3d3a.so
 vendor/lib64/libabfadp.so
 vendor/lib64/libacdk.so
 vendor/lib64/libadropbox.so
-vendor/lib64/libalsautils.so
 vendor/lib64/libaudiocompensationfilterc.so
 vendor/lib64/libaudiocompensationfilter.so
 vendor/lib64/libaudiocomponentenginec.so
@@ -614,7 +613,6 @@ vendor/lib64/libdlbmemoryservice.so
 vendor/lib64/libdngop.so
 vendor/lib64/libdpframework.so
 vendor/lib64/libeffecthal.base.so
-vendor/lib64/libeffects.so
 vendor/lib64/libfeature_3dnr.so
 vendor/lib64/libfeature_eis.so
 vendor/lib64/libfeature.face.so
@@ -627,7 +625,6 @@ vendor/lib64/libgpu_aux.so
 vendor/lib64/libgralloc_extra.so
 vendor/lib64/libhdrproc.so
 vendor/lib64/libhevce_sb.ca7.android.so
-vendor/lib64/libhwc2on1adapter.so
 vendor/lib64/libhwm.so
 vendor/lib64/libhydra.so
 vendor/lib64/libifcutils_mtk.so
@@ -641,8 +638,6 @@ vendor/lib64/libion_ulit.so
 vendor/lib64/libipsec_ims_shr.so
 vendor/lib64/libJpgDecPipe.so
 vendor/lib64/libJpgEncPipe.so
-vendor/lib64/libkeystore-engine-wifi-hidl.so
-vendor/lib64/libkeystore-wifi-hidl.so
 vendor/lib64/libm4u.so
 vendor/lib64/libmal_datamngr.so
 vendor/lib64/libmal_epdga.so
@@ -735,8 +730,6 @@ vendor/lib64/libstrongswan.so
 vendor/lib64/libSwJpgCodec.so
 vendor/lib64/libsysenv.so
 vendor/lib64/libthha.so
-vendor/lib64/libtinycompress.so
-vendor/lib64/libtinyxml.so
 vendor/lib64/libudf.so
 vendor/lib64/libui_ext.so
 vendor/lib64/libvcodec_cap.so
@@ -744,10 +737,8 @@ vendor/lib64/libvcodecdrv.so
 vendor/lib64/libvcodec_oal.so
 vendor/lib64/libvcodec_utility.so
 vendor/lib64/libverno.so
-vendor/lib64/libwifi-hal.so
 vendor/lib64/libwifitest.so
 vendor/lib64/libwo.so
-vendor/lib64/libwpa_client.so
 vendor/lib64/libwvhidl.so
 vendor/lib64/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib64/mediadrm/libwvdrmengine.so
@@ -784,9 +775,7 @@ vendor/lib/hw/android.hardware.audio@2.0-impl-mediatek.so
 vendor/lib/hw/android.hardware.camera.provider@2.4-impl-mediatek.so
 vendor/lib/hw/android.hardware.light@2.0-impl-mediatek.so
 vendor/lib/hw/android.hardware.sensors@1.0-impl-mediatek.so
-vendor/lib/hw/audio_policy.stub.so
 vendor/lib/hw/audio.primary.mt6757.so
-vendor/lib/hw/audio.r_submix.default.so
 vendor/lib/hw/audio.usb.mt6757.so
 vendor/lib/hw/com.motorola.hardware.display.panel@1.0-impl.so
 vendor/lib/hw/displaypanel.default.so
@@ -816,7 +805,6 @@ vendor/lib/hw/vendor.mediatek.hardware.nvram@1.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.power@1.1-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.pq@2.0-impl.so
 vendor/lib/hw/vendor.mediatek.hardware.videotelephony@1.0-impl.so
-vendor/lib/hw/vibrator.default.so
 vendor/lib/lib3a.ae.core.so
 vendor/lib/lib3a.ae.so
 vendor/lib/lib3a.af.core.so
@@ -830,7 +818,6 @@ vendor/lib/lib3a.log.so
 vendor/lib/lib3a.n3d3a.so
 vendor/lib/libabfadp.so
 vendor/lib/libacdk.so
-vendor/lib/libalsautils.so
 vendor/lib/libaudiocompensationfilterc.so
 vendor/lib/libaudiocompensationfilter.so
 vendor/lib/libaudiocomponentenginec.so
@@ -915,7 +902,6 @@ vendor/lib/libdngop.so
 vendor/lib/libdpframework.so
 vendor/lib/libDR.so
 vendor/lib/libeffecthal.base.so
-vendor/lib/libeffects.so
 vendor/lib/libfeature_3dnr.so
 vendor/lib/libfeature_eis.so
 vendor/lib/libfeature.face.so
@@ -937,7 +923,6 @@ vendor/lib/libh264enc_sb.ca7.so
 vendor/lib/libhdrproc.so
 vendor/lib/libHEVCdec_sa.ca7.android.so
 vendor/lib/libhevce_sb.ca7.android.so
-vendor/lib/libhwc2on1adapter.so
 vendor/lib/libhwm.so
 vendor/lib/libhydra.so
 vendor/lib/libifcutils_mtk.so
@@ -1062,8 +1047,6 @@ vendor/lib/libSwJpgCodec.so
 vendor/lib/libsysenv.so
 vendor/lib/libthermalalgo.so
 vendor/lib/libthha.so
-vendor/lib/libtinycompress.so
-vendor/lib/libtinyxml.so
 vendor/lib/libudf.so
 vendor/lib/libui_ext.so
 vendor/lib/libvc1dec_sa.ca7.so
@@ -1079,7 +1062,6 @@ vendor/lib/libvp8enc_sa.ca7.so
 vendor/lib/libvp9dec_sa.ca7.so
 vendor/lib/libvt_custom.so
 vendor/lib/libwo.so
-vendor/lib/libwpa_client.so
 vendor/lib/libwvhidl.so
 vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
