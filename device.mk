@@ -116,13 +116,14 @@ PRODUCT_PACKAGES += \
     audio.r_submix.default \
     audio.a2dp.default \
     audio.usb.default \
-	libaudio-resampler \
+    audio_policy.stub \
+    libaudio-resampler \
     libtinyalsa \
     libtinycompress \
     libtinymix \
     libtinyxml \
-	libtinyxml2 \
-	libxml2
+    libtinyxml2 \
+    libxml2
 
 PRODUCT_PACKAGES += \
 	android.hardware.audio.effect@2.0-impl \
