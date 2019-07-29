@@ -65,4 +65,9 @@ BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 # Remove rild oneshot
 sed -i "/oneshot/d" "$BLOB_ROOT"/vendor/etc/init/rild.rc
 
+# Hex edit mtk-ril.so to receive incoming calls
+for MTKRIL_LIB in "$BLOB_ROOT"/vendor/lib/mtk-ril.so "$BLOB_ROOT"/vendor/lib64/mtk-ril.so; do
+    sed -i -e 's/AT+EAIC=2/AT+EAIC=3/g' "$MTKRIL_LIB" || true
+done
+
 "$MY_DIR"/setup-makefiles.sh
