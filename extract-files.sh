@@ -72,4 +72,9 @@ for FP_LIB in $(grep -lr "libkeymaster1.so" $BLOB_ROOT); do
     patchelf --add-needed libkeymaster_staging.so "$FP_LIB" || true
 done
 
+# Hex edit mtk-ril.so to receive incoming calls
+for MTKRIL_LIB in "$BLOB_ROOT"/vendor/lib/mtk-ril.so "$BLOB_ROOT"/vendor/lib64/mtk-ril.so; do
+    sed -i -e 's/AT+EAIC=2/AT+EAIC=3/g' "$MTKRIL_LIB" || true
+done
+
 "$MY_DIR"/setup-makefiles.sh
