@@ -119,9 +119,6 @@ TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 
-# LineageOS H/W Hooks
-BOARD_HARDWARE_CLASS := $(LOCAL_PATH)/lineagehw
-
 # Dexpreopt
 WITH_DEXPREOPT := true
 DONT_DEXPREOPT_PREBUILTS := true
