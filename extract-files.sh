@@ -62,8 +62,10 @@ extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
 BLOB_ROOT="$LINEAGE_ROOT"/vendor/"$VENDOR"/"$DEVICE"/proprietary
 
-# Remove rild oneshot
-sed -i "/oneshot/d" "$BLOB_ROOT"/vendor/etc/init/rild.rc
+# Remove rild and rilproxy oneshot
+for RIL_RC in "$BLOB_ROOT"/vendor/etc/init/rild.rc "$BLOB_ROOT"/vendor/etc/init/rilproxy.rc ; do
+sed -i "/oneshot/d" "$RIL_RC" || true
+done
 
 # Hex edit mtk-ril.so to receive incoming calls
 for MTKRIL_LIB in "$BLOB_ROOT"/vendor/lib/mtk-ril.so "$BLOB_ROOT"/vendor/lib64/mtk-ril.so; do
